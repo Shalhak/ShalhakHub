@@ -8,8 +8,7 @@
 -- game.PlaceId est fiable dans les deux cas
 local placeId = game.PlaceId
 
--- Debug — retire le commentaire si tu veux voir le PlaceId dans la console
--- print("[HUB] PlaceId détecté : " .. tostring(placeId))
+print("[HUB] PlaceId détecté : " .. tostring(placeId))
 
 local scripts = {
 
@@ -199,14 +198,17 @@ local scripts = {
 local url = scripts[placeId]
 
 if url and url ~= "TON_URL_ICI" then
+    print("[HUB] Script trouvé, lancement...")
     local ok, err = pcall(function()
         loadstring(game:HttpGet(url, true))()
     end)
     if not ok then
-        warn("[HUB] Script crash pour PlaceId " .. placeId .. " : " .. tostring(err))
+        print("[HUB] Erreur : " .. tostring(err))
+    else
+        print("[HUB] Script lancé avec succès.")
     end
 elseif url and url == "TON_URL_ICI" then
-    warn("[HUB] URL manquante pour ce jeu. PlaceId : " .. tostring(placeId))
+    print("[HUB] URL manquante pour ce jeu. PlaceId : " .. tostring(placeId))
 else
-    warn("[HUB] Jeu non supporté. PlaceId : " .. tostring(placeId))
+    print("[HUB] Jeu non supporté. PlaceId : " .. tostring(placeId))
 end
