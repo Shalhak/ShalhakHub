@@ -212,3 +212,4 @@ elseif url and url == "TON_URL_ICI" then
 else
     print("[HUB] Jeu non supporté. PlaceId : " .. tostring(placeId))
 end
+ 
