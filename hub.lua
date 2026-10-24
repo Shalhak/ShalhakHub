@@ -1,11 +1,15 @@
 -- ═══════════════════════════════════════════════════════════════
---  UNIVERSAL GAME HUB
---  Auto-detects game by PlaceId → runs the right script
---  Host this file on GitHub Raw, then:
---  loadstring(game:HttpGet("YOUR_RAW_LINK_HERE"))()
+--  UNIVERSAL GAME HUB — ShalhakHub
+--  Fonctionne en public ET private server
+--  loadstring(game:HttpGet("https://raw.githubusercontent.com/Shalhak/ShalhakHub/refs/heads/main/hub.lua"))()
 -- ═══════════════════════════════════════════════════════════════
 
+-- Private servers ont le même PlaceId que le jeu normal
+-- game.PlaceId est fiable dans les deux cas
 local placeId = game.PlaceId
+
+-- Debug — retire le commentaire si tu veux voir le PlaceId dans la console
+-- print("[HUB] PlaceId détecté : " .. tostring(placeId))
 
 local scripts = {
 
@@ -189,18 +193,20 @@ local scripts = {
 }
 
 -- ═══════════════════════════════════════════════════════════════
---  EXECUTE
+--  EXECUTE — fonctionne public + private server
 -- ═══════════════════════════════════════════════════════════════
 
 local url = scripts[placeId]
 
-if url then
+if url and url ~= "TON_URL_ICI" then
     local ok, err = pcall(function()
-        loadstring(game:HttpGet(url))()
+        loadstring(game:HttpGet(url, true))()
     end)
     if not ok then
-        warn("[HUB] Erreur pour PlaceId " .. placeId .. " : " .. tostring(err))
+        warn("[HUB] Script crash pour PlaceId " .. placeId .. " : " .. tostring(err))
     end
+elseif url and url == "TON_URL_ICI" then
+    warn("[HUB] URL manquante pour ce jeu. PlaceId : " .. tostring(placeId))
 else
-    warn("[HUB] Aucun script pour ce jeu. PlaceId : " .. tostring(placeId))
+    warn("[HUB] Jeu non supporté. PlaceId : " .. tostring(placeId))
 end
