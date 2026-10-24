@@ -3,15 +3,15 @@
 --  Fonctionne en public ET private server
 --  loadstring(game:HttpGet("https://raw.githubusercontent.com/Shalhak/ShalhakHub/refs/heads/main/hub.lua"))()
 -- ═══════════════════════════════════════════════════════════════
-
+ 
 -- Private servers ont le même PlaceId que le jeu normal
 -- game.PlaceId est fiable dans les deux cas
 local placeId = game.PlaceId
-
+ 
 print("[HUB] PlaceId détecté : " .. tostring(placeId))
-
+ 
 local scripts = {
-
+ 
     -- ── SURVIVAL / HORROR ───────────────────────────────────────
     [7610303491]  = "TON_URL_ICI", -- 99 Nights in the Forest
     [7610303492]  = "TON_URL_ICI", -- 299 Nights in the Forest
@@ -35,7 +35,7 @@ local scripts = {
     [7568560874]  = "TON_URL_ICI", -- Survive the Killer
     [8173968393]  = "TON_URL_ICI", -- Color or Die
     [8817123664]  = "TON_URL_ICI", -- Ragdoll Reality
-
+ 
     -- ── MURDER / SHOOTER ────────────────────────────────────────
     [142823291]   = "TON_URL_ICI", -- Murder Mystery 2
     [286090429]   = "TON_URL_ICI", -- Arsenal
@@ -45,7 +45,7 @@ local scripts = {
     [1260936879]  = "TON_URL_ICI", -- Murderers VS Sheriffs
     [9032107998]  = "TON_URL_ICI", -- Breaking Point
     [3062788056]  = "TON_URL_ICI", -- Fling Things and People
-
+ 
     -- ── OPEN WORLD / RPG ────────────────────────────────────────
     [2753915549]  = "TON_URL_ICI", -- Blox Fruits
     [9872472336]  = "TON_URL_ICI", -- King Legacy
@@ -74,7 +74,7 @@ local scripts = {
     [9872472352]  = "TON_URL_ICI", -- Slap Battles
     [9872472353]  = "TON_URL_ICI", -- The Hunt
     [9872472354]  = "TON_URL_ICI", -- Death Ball
-
+ 
     -- ── ANIME TOWER DEFENSE ─────────────────────────────────────
     [9924001783]  = "TON_URL_ICI", -- Anime Vanguards
     [9872472355]  = "TON_URL_ICI", -- Anime Defenders
@@ -89,7 +89,7 @@ local scripts = {
     [9872472363]  = "TON_URL_ICI", -- Five Nights TD
     [9872472364]  = "TON_URL_ICI", -- SpongeBob Tower Defense
     [9872472365]  = "TON_URL_ICI", -- Cameraman Tower Defense
-
+ 
     -- ── SOCIAL / ROLEPLAY ───────────────────────────────────────
     [4924922222]  = "TON_URL_ICI", -- Brookhaven RP
     [920587237]   = "TON_URL_ICI", -- Adopt Me!
@@ -101,7 +101,7 @@ local scripts = {
     [9872472370]  = "TON_URL_ICI", -- Dress To Impress
     [9872472371]  = "TON_URL_ICI", -- Catalog Avatar Creator
     [9872472372]  = "TON_URL_ICI", -- Huss Valley
-
+ 
     -- ── CRIME / OPEN WORLD ──────────────────────────────────────
     [606849621]   = "TON_URL_ICI", -- Jailbreak
     [9872472373]  = "TON_URL_ICI", -- Mad City
@@ -109,7 +109,7 @@ local scripts = {
     [2788229376]  = "TON_URL_ICI", -- Da Hood
     [6284583032]  = "TON_URL_ICI", -- Emergency Response: Liberty County
     [9872472374]  = "TON_URL_ICI", -- Violence District
-
+ 
     -- ── TYCOON ──────────────────────────────────────────────────
     [9872472375]  = "TON_URL_ICI", -- Restaurant Tycoon 2
     [9872472376]  = "TON_URL_ICI", -- Retail Tycoon 2
@@ -122,14 +122,14 @@ local scripts = {
     [9872472382]  = "TON_URL_ICI", -- Islands
     [2395887859]  = "TON_URL_ICI", -- Work at a Pizza Place
     [185655149]   = "TON_URL_ICI", -- Welcome to Bloxburg
-
+ 
     -- ── DRIVING / VEHICLES ──────────────────────────────────────
     [9872472383]  = "TON_URL_ICI", -- Driving Empire
     [9872472384]  = "TON_URL_ICI", -- Car Crushers 2
     [9872472385]  = "TON_URL_ICI", -- Vehicle Legends
     [9872472386]  = "TON_URL_ICI", -- Ultimate Driving
     [9872472387]  = "TON_URL_ICI", -- Taxi Boss
-
+ 
     -- ── SIMULATORS ──────────────────────────────────────────────
     [6284583030]  = "TON_URL_ICI", -- Pet Simulator 99
     [9872472388]  = "TON_URL_ICI", -- Muscle Legends
@@ -155,11 +155,11 @@ local scripts = {
     [9872472408]  = "TON_URL_ICI", -- Climb For Animals Eggs
     [9872472409]  = "TON_URL_ICI", -- Bike For Egg!
     [9872472410]  = "TON_URL_ICI", -- Ride a Dino
-
+ 
     -- ── CREATURES / PETS ────────────────────────────────────────
     [9872472411]  = "TON_URL_ICI", -- Creatures of Sonaria
     [9872472412]  = "TON_URL_ICI", -- Dragon Adventures
-
+ 
     -- ── OBBY / PARKOUR ──────────────────────────────────────────
     [8737899171]  = "TON_URL_ICI", -- Tower of Hell
     [9872472413]  = "TON_URL_ICI", -- Speed Run 4
@@ -171,11 +171,11 @@ local scripts = {
     [9872472419]  = "TON_URL_ICI", -- Obby But You're on a Bike
     [9872472420]  = "TON_URL_ICI", -- Parkour
     [9872472421]  = "TON_URL_ICI", -- Evade
-
+ 
     -- ── FISHING ─────────────────────────────────────────────────
     [9872472422]  = "TON_URL_ICI", -- Fisch
     [9872472423]  = "TON_URL_ICI", -- Fish It!
-
+ 
     -- ── SPORTS ──────────────────────────────────────────────────
     [9872472424]  = "TON_URL_ICI", -- RIVALS
     [9872472425]  = "TON_URL_ICI", -- Volleyball Legends
@@ -185,18 +185,18 @@ local scripts = {
     [9872472429]  = "TON_URL_ICI", -- Football Fusion 2
     [9872472430]  = "TON_URL_ICI", -- Illegal Soccer
     [9872472431]  = "TON_URL_ICI", -- Blue Lock: Rivals
-
+ 
     -- ── MISC / MINIGAMES ────────────────────────────────────────
     [9872472432]  = "TON_URL_ICI", -- Epic Minigames
     [9872472433]  = "TON_URL_ICI", -- BedWars
 }
-
+ 
 -- ═══════════════════════════════════════════════════════════════
 --  EXECUTE — fonctionne public + private server
 -- ═══════════════════════════════════════════════════════════════
-
+ 
 local url = scripts[placeId]
-
+ 
 if url and url ~= "TON_URL_ICI" then
     print("[HUB] Script trouvé, lancement...")
     local ok, err = pcall(function()
